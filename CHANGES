@@ -1,2 +1,4 @@
 Comments ADDED.
 TODO CHECK all (libc) functions for segf && optimizations.
+
+!! MODIFY ft_strstr to avoid segf on null arguments.
