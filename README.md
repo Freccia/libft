@@ -1,3 +1,4 @@
 # libft
-my C library
+my C library.
+
 This includes ft_printf sources.
