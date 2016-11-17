@@ -1,2 +1,3 @@
 Comments ADDED.
-TODO CHECK all (libc) functions for segf && optimizations.
+ft_xword.c
+ft_strxchr.c

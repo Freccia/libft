@@ -6,13 +6,13 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 18:34:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/04/10 15:13:01 by lfabbro          ###   ########.fr       */
+/*   Updated: 2016/11/17 22:28:07 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_size(uintmax_t value, int base)
+static int		uimaxtoa_base_get_size(uintmax_t value, int base)
 {
 	int			size;
 
@@ -25,7 +25,7 @@ static int		get_size(uintmax_t value, int base)
 	return (size);
 }
 
-static char		*return_zero(void)
+static char		*uimaxtoa_base_return_zero(void)
 {
 	char		*num;
 
@@ -41,7 +41,7 @@ static char		*uimaxtoa_base_return(uintmax_t value, int base, char set)
 	int			size;
 	char		*num;
 
-	size = get_size(value, base);
+	size = uimaxtoa_base_get_size(value, base);
 	if ((num = (char*)malloc(sizeof(char) * size)) == NULL)
 		return (NULL);
 	num[size] = '\0';
@@ -61,6 +61,6 @@ char			*ft_uimaxtoa_base(uintmax_t value, int base, char set)
 	if (base < 2 || base > 16)
 		return (NULL);
 	if (value == 0)
-		return (return_zero());
+		return (uimaxtoa_base_return_zero());
 	return (uimaxtoa_base_return(value, base, set));
 }

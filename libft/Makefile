@@ -15,6 +15,7 @@ SRC = ft_strlen.c\
 		ft_strncat.c\
 		ft_strlcat.c\
 		ft_strchr.c\
+		ft_strxchr.c\
 		ft_strrchr.c\
 		ft_strnstr.c\
 		ft_strncmp.c\
@@ -53,6 +54,7 @@ SRC = ft_strlen.c\
 		ft_strjoin.c\
 		ft_strtrim.c\
 		ft_strsplit.c\
+		ft_xword.c\
 		ft_itoa.c\
 		ft_putchar.c\
 		ft_putstr.c\
