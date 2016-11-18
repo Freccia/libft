@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 13:53:42 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/02/22 16:26:44 by lfabbro          ###   ########.fr       */
+/*   Updated: 2016/11/18 02:24:00 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int				ft_increase_buf(t_save **save)
 	ptr_pos = (*save)->ptr - (*save)->buf;
 	new_size = (*save)->buf_size * I_SIZE;
 	if ((new_buf = ft_strnew(new_size)) == NULL)
-		return (1);
+		return (-1);
 	ft_strcpy(new_buf, (*save)->buf);
 	free((*save)->buf);
 	(*save)->buf = new_buf;
@@ -46,9 +46,9 @@ static int				ft_increase_buf(t_save **save)
 static int				ft_init_save(t_save **save)
 {
 	if ((*save = malloc(sizeof(t_save))) == NULL)
-		return (1);
+		return (-1);
 	if (((*save)->buf = ft_strnew(BUFF_SIZE)) == NULL)
-		return (1);
+		return (-1);
 	(*save)->ret = 1;
 	(*save)->buf_size = BUFF_SIZE;
 	(*save)->buf_len = 0;
@@ -86,12 +86,12 @@ int						get_next_line(int const fd, char **line)
 	if (fd < 0 || fd > MAX_FD || line == NULL)
 		return (-1);
 	if (!save[fd])
-		if (ft_init_save(&save[fd]))
+		if (ft_init_save(&save[fd]) < 0)
 			return (-1);
 	while (!ft_end_of_line(&save[fd]) && save[fd]->ret > 0)
 	{
 		while (save[fd]->buf_size < save[fd]->buf_len + BUFF_SIZE)
-			if (ft_increase_buf(&save[fd]))
+			if (ft_increase_buf(&save[fd]) < 0)
 				return (-1);
 		save[fd]->ret = read(fd, save[fd]->buf + save[fd]->buf_len, BUFF_SIZE);
 		save[fd]->buf_len += save[fd]->ret;
