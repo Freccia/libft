@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
 
 SRC_NAME = ft_printf.c ft_pf_lenght.c ft_pf_parse.c ft_pf_set.c\
 		   ft_pf_padding.c ft_pf_conversions.c ft_pf_handle_wchar.c\
@@ -69,7 +69,7 @@ all :
 	@make $(NAME)
 
 $(NAME): 
-	@echo "\x1b[44m\x1b[32mMaking libprintf\x1b[0m\x1b[0m"
+	@echo "\x1b[44m\x1b[32m Making libprintf \x1b[0m\x1b[0m"
 	@make $(OBJ_PRINTF)
 	@ar -rcs $(NAME) $(OBJ_LIBFT) $(OBJ_PRINTF)
 	@ranlib $(NAME)
@@ -79,11 +79,11 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean : libclean
-	@/bin/rm -fv $(OBJ_PRINTF)
-	@/bin/rm -rfv $(OBJ_PATH)
+	@/bin/rm -f $(OBJ_PRINTF)
+	@/bin/rm -rf $(OBJ_PATH)
 
 fclean : libfclean clean
-	@/bin/rm -fv $(NAME)
+	@/bin/rm -f $(NAME)
 
 libclean :
 	@make -C $(LIB_PATH) clean
