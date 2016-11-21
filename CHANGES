@@ -1,4 +1,3 @@
-Comments ADDED.
 TODO CHECK all (libc) functions for segf && optimizations.
 
-!! MODIFY ft_strstr to avoid segf on null arguments.
+21/11/2016 : ADDED ft_free_tab.c ft_puttab.c on minishell libft
