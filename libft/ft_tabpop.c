@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tabpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 18:20:00 by lfabbro           #+#    #+#             */
-/*   Updated: 2015/11/30 12:14:19 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/24 16:46:56 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/25 17:46:00 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char		**ft_tabpop(char **tab, size_t pop)
 {
-	unsigned char	*sd;
-	unsigned char	*ss;
+	char	**new;
+	size_t	i;
 
-	if (dst && src)
+	new = NULL;
+	i = -1;
+	if (tab)
 	{
-		sd = (unsigned char *)dst;
-		ss = (unsigned char *)src;
-		if (dst > src)
+		new = ft_tabnew(ft_tablen(tab) - 1);
+		while (++i < pop && tab[i])
 		{
-			sd += len;
-			ss += len;
-			while (len--)
-				*--sd = *--ss;
+			new[i] = ft_strdup(tab[i]);
 		}
-		else
-			ft_memcpy(dst, src, len);
+		while (tab[++i])
+		{
+			new[i - 1] = ft_strdup(tab[i]);
+		}
+		new[i - 1] = NULL;
 	}
-	return (dst);
+	return (new);
 }

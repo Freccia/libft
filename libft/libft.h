@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:44:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/18 02:28:36 by lfabbro          ###   ########.fr       */
+/*   Updated: 2016/11/29 17:27:47 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
-char				*ft_imaxtoa_base(intmax_t value, int base, char set);
-char				*ft_uimaxtoa_base(uintmax_t value, int base, char set);
+char				*ft_imaxtoa_base(long long value, int base, char set);
+char				*ft_uimaxtoa_base(long long value, int base, char set);
+
+/*
+**	IS .. WHAT?
+*/
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -69,6 +73,8 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_isalpha_str(char *str);
+int					ft_issticky(char *path);
 
 /*
 **	STR
@@ -88,6 +94,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
+char				*ft_strxtrim(char const *s, char x);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strdup(const char *s1);
 char				*ft_strndup(const char *s1, size_t b);
@@ -97,14 +104,24 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
-char        		*ft_strxchr(const char *s, char c, int x);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strnstr(const char *big, const char *little, \
 		size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_xword(char *str, int x, char div);
+
+/*
+**	TAB
+*/
+size_t				ft_tablen(char **tab);
+char				**ft_tabnew(size_t size);
+char				**ft_tabcpy(char **dst, char **src);
+char				**ft_tabdup(char **tab);
+char				**ft_tabndup(char **tab, size_t b);
+char				**ft_tabcat(char **tab, char *str);
+char				**ft_tabpop(char **tab, size_t pop);
+void				ft_free_tab(char **tab);
 
 /*
 **	PUT
@@ -113,6 +130,7 @@ int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
+void				ft_puttab(char **tab);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);

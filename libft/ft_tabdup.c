@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tabdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 18:20:00 by lfabbro           #+#    #+#             */
-/*   Updated: 2015/11/30 12:14:19 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/23 16:41:05 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/25 18:27:22 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char		**ft_tabdup(char **tab)
 {
-	unsigned char	*sd;
-	unsigned char	*ss;
+	char	**dup;
+	int		i;
 
-	if (dst && src)
+	i = 0;
+	if ((dup = ft_tabnew(ft_tablen(tab))) == NULL)
+		return (NULL);
+	while (tab[i])
 	{
-		sd = (unsigned char *)dst;
-		ss = (unsigned char *)src;
-		if (dst > src)
-		{
-			sd += len;
-			ss += len;
-			while (len--)
-				*--sd = *--ss;
-		}
-		else
-			ft_memcpy(dst, src, len);
+		dup[i] = ft_strdup(tab[i]);
+		++i;
 	}
-	return (dst);
+	dup[i] = NULL;
+	return (dup);
 }

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 18:20:00 by lfabbro           #+#    #+#             */
-/*   Updated: 2015/11/30 12:14:19 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/23 16:30:08 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/23 16:33:38 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t			ft_tablen(char **tab)
 {
-	unsigned char	*sd;
-	unsigned char	*ss;
+	size_t		len;
 
-	if (dst && src)
+	len = 0;
+	if (tab)
 	{
-		sd = (unsigned char *)dst;
-		ss = (unsigned char *)src;
-		if (dst > src)
+		while (*tab)
 		{
-			sd += len;
-			ss += len;
-			while (len--)
-				*--sd = *--ss;
+			++tab;
+			++len;
 		}
-		else
-			ft_memcpy(dst, src, len);
 	}
-	return (dst);
+	return (len);
 }

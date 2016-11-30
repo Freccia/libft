@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_issticky.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 18:20:00 by lfabbro           #+#    #+#             */
-/*   Updated: 2015/11/30 12:14:19 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/29 17:26:21 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/29 17:27:19 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
+#include <sys/stat.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int			ft_issticky(char *path)
 {
-	unsigned char	*sd;
-	unsigned char	*ss;
+	struct stat	buf;
 
-	if (dst && src)
-	{
-		sd = (unsigned char *)dst;
-		ss = (unsigned char *)src;
-		if (dst > src)
-		{
-			sd += len;
-			ss += len;
-			while (len--)
-				*--sd = *--ss;
-		}
-		else
-			ft_memcpy(dst, src, len);
-	}
-	return (dst);
+	if (lstat(path, &buf) == -1)
+		return (0);
+	if ((buf.st_mode & S_ISUID) || (buf.st_mode & S_ISGID))
+		return (1);
+	return (0);
 }
