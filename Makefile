@@ -81,7 +81,7 @@ $(NAME):
 	@echo $(BLUE) "Making libft" $(ENDC)
 	@make $(OBJS_PRINTF)
 	@make $(OBJS_LIBFT)
-	@ar -rcs $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
 	@ranlib $(NAME)
 
 $(OBJ_PATH1)%.o: $(SRC_PRINTF_PATH)%.c
