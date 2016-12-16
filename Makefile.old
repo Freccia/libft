@@ -12,16 +12,15 @@
 
 NAME = libft.a
 
-## SOURCES ##
-PRINTF = ft_printf.c ftpf_lenght.c ftpf_parse.c ftpf_set.c\
-		   ftpf_padding.c ftpf_conversions.c ftpf_handle_wchar.c\
-		   ftpf_formats_00.c ftpf_formats_01.c ftpf_char.c ftpf_hex.c\
-		   ftpf_int.c ftpf_octal.c ftpf_ptr.c ftpf_str.c\
-		   ftpf_uint.c ftpf_wstr.c ftpf_wchar.c
+SRC_NAME = ft_printf.c ft_pf_lenght.c ft_pf_parse.c ft_pf_set.c\
+		   ft_pf_padding.c ft_pf_conversions.c ft_pf_handle_wchar.c\
+		   ft_pf_formats_00.c ft_pf_formats_01.c ft_pf_a_char.c ft_pf_a_hex.c\
+		   ft_pf_a_int.c ft_pf_a_octal.c ft_pf_a_ptr.c ft_pf_a_str.c\
+		   ft_pf_a_uint.c ft_pf_a_wstr.c ft_pf_a_wchar.c
 
-OBJ_PRINTF = $(PRINTF:.c=.o)
+OBJ_NAME = $(SRC_NAME:.c=.o)
 
-LIBFT = ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
+OBJ_LIB_NAME = ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 			   ft_strcat.c ft_strcmp.c ft_strncpy.c ft_strncat.c ft_strlcat.c\
 			   ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c\
 			   ft_itoa_base.c ft_imaxtoa_base.c ft_uimaxtoa_base.c ft_itoa.c\
@@ -42,64 +41,60 @@ LIBFT = ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 			   ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
 			   ft_lstmap.c ft_wstrlen.c ft_abs.c ft_swap.c\
 			   ft_realloc.c ft_getnbr.c ft_wchar_size.c\
-			   ft_nbrlen.c ft_getchar.c\
+			   ft_nbrlen.c ft_getchar.c ft_getchar.c\
 			   ft_atol.c ft_atoll.c ft_isnbr.c\
 			   get_next_line.c
 
-OBJ_LIBFT = $(LIBFT:.c=.o)
-
-## PATHS ##
-SRC_PRINTF_PATH = ./srcs/
-SRC_LIBFT_PATH = ./libft/
+LIB_NAME = ft
+SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-OBJ_PATH1 = ./objs/
-OBJ_PATH2 = ./objs/
 INC_PATH = ./includes ./libft
+LIB_PATH = ./libft/
 
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror
 
-## OBJECTS ##
-OBJS_PRINTF = $(addprefix $(OBJ_PATH1),$(OBJ_PRINTF))
-OBJS_LIBFT = $(addprefix $(OBJ_PATH2),$(OBJ_LIBFT))
+
+## SOURCES ##
+OBJ_PRINTF = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+OBJ_LIBFT = $(addprefix $(LIB_PATH),$(OBJ_LIB_NAME))
 
 ## INCLUDES ##
 INC = $(addprefix -I,$(INC_PATH))
 
-## COLORS ##
-RED = "\033[33;41m"
-BLUE = "\033[32;44m"
-ENDC = "\033[0m"
+## LIBRARIES ##
+LIB_LINK = $(addprefix -L,$(LIB_PATH))
+LIB = $(addprefix -l,$(LIB_NAME))
 
 .PHONY: makelibft clean fclean re norme
 
 ## RULES ##
 all :
+	@make -C $(LIB_PATH)
 	@make $(NAME)
 
 $(NAME): 
-	@echo $(BLUE) "Making libft" $(ENDC)
-	@make $(OBJS_PRINTF)
-	@make $(OBJS_LIBFT)
-	@ar -rcs $(NAME) $(OBJS)
+	@echo "\033[32;44m Making libprintf \033[0m"
+	@make $(OBJ_PRINTF)
+	@ar -rcs $(NAME) $(OBJ_LIBFT) $(OBJ_PRINTF)
 	@ranlib $(NAME)
 
-$(OBJ_PATH1)%.o: $(SRC_PRINTF_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
-$(OBJ_PATH1)%.o: $(SRC_LIBFT_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-
-
-clean :
-	@echo $(RED) "Removing libft objs" $(ENDC)
-	@/bin/rm -f $(OBJS)
+clean : libclean
+	@/bin/rm -f $(OBJ_PRINTF)
 	@/bin/rm -rf $(OBJ_PATH)
 
-fclean : clean
+fclean : libfclean clean
 	@/bin/rm -f $(NAME)
+
+libclean :
+	@make -C $(LIB_PATH) clean
+
+libfclean :
+	@make -C $(LIB_PATH) fclean
 
 re : fclean all
 
