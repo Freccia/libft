@@ -67,7 +67,7 @@ OBJS_LIBFT = $(addprefix $(OBJ_PATH2),$(OBJ_LIBFT))
 INC = $(addprefix -I,$(INC_PATH))
 
 ## COLORS ##
-RED = "\033[33;41m"
+RED = "\033[31;44m"
 BLUE = "\033[32;44m"
 ENDC = "\033[0m"
 
