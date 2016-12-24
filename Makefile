@@ -49,19 +49,17 @@ LIBFT = ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 OBJ_LIBFT = $(LIBFT:.c=.o)
 
 ## PATHS ##
-SRC_PRINTF_PATH = ./srcs/
+SRC_PRINTF_PATH = ./ft_printf/
 SRC_LIBFT_PATH = ./libft/
 OBJ_PATH = ./objs/
-OBJ_PATH1 = ./objs/
-OBJ_PATH2 = ./objs/
 INC_PATH = ./includes ./libft
 
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror
 
 ## OBJECTS ##
-OBJS_PRINTF = $(addprefix $(OBJ_PATH1),$(OBJ_PRINTF))
-OBJS_LIBFT = $(addprefix $(OBJ_PATH2),$(OBJ_LIBFT))
+OBJS_PRINTF = $(addprefix $(OBJ_PATH),$(OBJ_PRINTF))
+OBJS_LIBFT = $(addprefix $(OBJ_PATH),$(OBJ_LIBFT))
 
 ## INCLUDES ##
 INC = $(addprefix -I,$(INC_PATH))
@@ -84,18 +82,18 @@ $(NAME):
 	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
 	@ranlib $(NAME)
 
-$(OBJ_PATH1)%.o: $(SRC_PRINTF_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_PRINTF_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
-$(OBJ_PATH1)%.o: $(SRC_LIBFT_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_LIBFT_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-
 
 clean :
 	@echo $(RED) "Removing libft objs" $(ENDC)
-	@/bin/rm -f $(OBJS)
+	@/bin/rm -f $(OBJS_PRINTF)
+	@/bin/rm -f $(OBJS_LIBFT)
 	@/bin/rm -rf $(OBJ_PATH)
 
 fclean : clean
