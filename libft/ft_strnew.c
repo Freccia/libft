@@ -22,16 +22,13 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*space;
+	char	*new;
 	size_t	i;
 
-	i = 0;
-	if ((space = malloc(sizeof(char) * size)) == NULL)
+	i = -1;
+	if (size == 0 || (new = malloc(sizeof(char) * (size + 1))) == NULL)
 		return (NULL);
-	while (i < size)
-	{
-		space[i] = '\0';
-		++i;
-	}
-	return (space);
+	while (++i < size)
+		new[i] = '\0';
+	return (new);
 }

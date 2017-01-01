@@ -12,22 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t b)
+char	*ft_strndup(const char *src, size_t n)
 {
-	int		len;
-	int		i;
+	size_t	i;
+	size_t	slen;
 	char	*dup;
 
-	len = ft_strlen(s1);
-	i = 0;
-	dup = (char *)malloc(sizeof(*dup) * b + 1);
-	if (dup == NULL)
-		return (0);
-	while ((size_t)i < b && i < len)
-	{
-		dup[i] = s1[i];
-		i++;
-	}
+	i = -1;
+	slen = ft_strlen(src);
+	if ((dup = ft_strnew(n)) == NULL)
+		return (NULL);
+	while (++i < n && i < slen)
+		dup[i] = src[i];
 	dup[i] = '\0';
 	return (dup);
 }
