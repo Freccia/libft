@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 16:39:09 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/22 16:54:49 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/01/30 15:26:50 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			*ft_strxtrim(char const *str, char x)
 	if (str)
 	{
 		len = ft_trim_len(str, x);
-		if ((trim = malloc(sizeof(*trim) * len)) == NULL)
+		if ((trim = malloc(sizeof(*trim) * len + 1)) == NULL)
 			return (NULL);
 		while (str[i])
 		{
