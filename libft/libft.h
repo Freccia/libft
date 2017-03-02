@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:44:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/12/06 17:33:03 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/03/02 16:06:35 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_list
 }					t_list;
 
 int				ft_printf(const char *format, ...);
+int				ft_printfd(int fd, const char *format, ...);
 int				get_next_line(int fd, char **line);
 
 /*
@@ -99,6 +100,8 @@ char			*ft_strxtrim(char const *s, char x);
 char			*ft_strxtrim_quote(char const *str, char x);
 char			**ft_strsplit(char const *s, char c);
 char			**ft_strsplit_quote(char const *s, char c);
+char			**ft_strsplit_wo_quote(char const *s, char c);
+char			**ft_strsplit_quote_bs(char const *s, char c);
 char			*ft_strdup(const char *s1);
 char			*ft_strndup(const char *s1, size_t b);
 char			*ft_strcpy(char *dst, const char *src);
@@ -117,14 +120,15 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 /*
 **	TAB
 */
-size_t			ft_tablen(char **tab);
+size_t			ft_tablen(char **tab_bis);
 char			**ft_tabnew(size_t size);
 char			**ft_tabcpy(char **dst, char **src);
-char			**ft_tabdup(char **tab);
-char			**ft_tabndup(char **tab, size_t b);
-char			**ft_tabcat(char **tab, char *str);
-char			**ft_tabpop(char **tab, size_t pop);
-void			ft_free_tab(char **tab);
+char			**ft_tabdup(char **tab_bis);
+char			**ft_tabndup(char **tab_bis, size_t b);
+char			**ft_tabcat(char **tab_bis, char *str);
+char			**ft_tabpop(char **tab_bis, size_t pop);
+void			ft_tabfree(char **tab_bis);
+void			ft_free_tab(char **tab_bis);
 
 /*
 **	PUT
@@ -133,11 +137,11 @@ int				ft_putchar(char c);
 int				ft_putstr(char const *s);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
-void			ft_puttab(char **tab);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char const *s, int fd);
-void			ft_putendl_fd(char const *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
+void			ft_puttab(char **tab_bis);
+int				ft_putchar_fd(char c, int fd);
+int				ft_putstr_fd(char const *s, int fd);
+int				ft_putendl_fd(char const *s, int fd);
+int				ft_putnbr_fd(int n, int fd);
 
 /*
 **	LIST

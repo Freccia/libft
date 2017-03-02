@@ -23,12 +23,9 @@
 char	*ft_strnew(size_t size)
 {
 	char	*new;
-	size_t	i;
 
-	i = -1;
-	if (size == 0 || (new = malloc(sizeof(char) * (size + 1))) == NULL)
+	if (!size || (new = malloc(sizeof(char) * (size + 1))) == NULL)
 		return (NULL);
-	while (++i < size)
-		new[i] = '\0';
+	ft_bzero(new, size + 1);
 	return (new);
 }
