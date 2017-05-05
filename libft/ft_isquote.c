@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isquote.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 18:57:01 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/05/05 17:18:52 by lfabbro          ###   ########.fr       */
+/*   Created: 2017/04/03 13:40:24 by lfabbro           #+#    #+#             */
+/*   Updated: 2017/04/03 13:42:44 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** DESCRIPTION:
-**     Outputs the string s to the file descriptor fd.
-*/
-
-int		ft_putstr_fd(char const *s, int fd)
+int		ft_isquote(int c)
 {
-	size_t	len;
-
-	if (s)
-	{
-		len = ft_strlen(s);
-		write(fd, s, len);
-		return (len);
-	}
-	return (0);
+	return ((c == '\'' || c == '\"'));
 }

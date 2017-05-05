@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/04/28 18:44:45 by vlistrat          #+#    #+#              #
+#    Updated: 2017/04/28 18:44:47 by vlistrat         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = gcc
@@ -24,11 +36,13 @@ SRC = ft_strlen.c\
 		ft_itoa_base.c\
 		ft_imaxtoa_base.c\
 		ft_uimaxtoa_base.c\
+		ft_strisdigit.c\
 		ft_isalpha.c\
 		ft_isdigit.c\
 		ft_isalnum.c\
 		ft_isascii.c\
 		ft_isprint.c\
+		ft_isquote.c\
 		ft_isnbr.c\
 		ft_isalpha_str.c\
 		ft_issticky.c\
@@ -59,8 +73,8 @@ SRC = ft_strlen.c\
 		ft_strxtrim_quote.c\
 		ft_strsplit.c\
 		ft_strsplit_quote.c\
-		ft_strsplit_quote_bs.c\
 		ft_strsplit_wo_quote.c\
+		ft_quote.c\
 		ft_tablen.c\
 		ft_tabnew.c\
 		ft_tabcpy.c\

@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+i/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 19:09:45 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/03/02 16:25:24 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:16:28 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,16 @@
 **      Outputs the integer n to the file descriptor fd
 */
 
-static int	ft_nbrlen(int n)
-{
-	int		l;
-
-	l = 0;
-	while (n)
-	{
-		n /= 10;
-		++l;
-	}
-	return (l);
-}
-
 int		ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nb;
-	int				l;
+	int				len;
 
 	nb = n;
-	l = ft_nbrlen(n);
+	len = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		len += ft_putchar_fd('-', fd);
 		nb = -nb;
 	}
 	if (nb >= 10)
@@ -48,6 +35,6 @@ int		ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nb % 10, fd);
 	}
 	else
-		ft_putchar_fd(nb + '0', fd);
-	return (l);
+		len += ft_putchar_fd(nb + '0', fd);
+	return (len);
 }

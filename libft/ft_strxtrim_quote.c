@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 17:32:04 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/02/28 17:20:14 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/04/04 15:18:23 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,52 +18,57 @@
 **		NULL terminated trimmed string.
 */
 
-static char		ft_quote(char quote, char c)
-{
-	if (quote == '\0' && (c == '\'' || c == '\"'))
-		quote = c;
-	else if (quote != '\0' && quote == c)
-		quote = '\0';
-	return (quote);
-}
-
 static size_t	ft_trim_len_quote(const char *str, char x)
 {
 	int		i;
+	int		bs;
 	size_t	len;
 	char	quote;
 
 	i = 0;
+	bs = 0;
 	len = 0;
 	quote = '\0';
 	while (str[i])
 	{
-		quote = ft_quote(quote, str[i]);
-		if (quote != '\0' || str[i] != x)
-			++len;
+		if (!bs && str[i] == '\\' && quote != '\'')
+			bs = 1;
+		else
+		{
+			quote = ft_check_quote_bs(str[i], quote, bs);
+			if (quote || str[i] != x || bs)
+				++len;
+			bs = 0;
+		}
 		++i;
 	}
 	return (len);
 }
 
-char			*ft_strxtrim_quote_ret(char const *str, char x, int len)
+static char		*ft_strxtrim_quote_ret(char const *str, char x,
+		int len, char quote)
 {
 	char	*trim;
+	int		bs;
 	int		i;
 	int		j;
-	char	quote;
 
+	bs = 0;
 	i = 0;
 	j = 0;
-	trim = NULL;
-	quote = '\0';
 	if ((trim = ft_strnew(len)) == NULL)
 		return (NULL);
 	while (str[i])
 	{
-		quote = ft_quote(quote, str[i]);
-		if (quote != '\0' || str[i] != x)
-			trim[j++] = str[i];
+		if (!bs && str[i] == '\\' && quote != '\'')
+			bs = 1;
+		else
+		{
+			quote = ft_check_quote_bs(str[i], quote, bs);
+			if (quote || str[i] != x || bs)
+				trim[j++] = str[i];
+			bs = 0;
+		}
 		++i;
 	}
 	trim[j] = '\0';
@@ -77,7 +82,7 @@ char			*ft_strxtrim_quote(char const *str, char x)
 	if (str)
 	{
 		len = ft_trim_len_quote(str, x);
-		return (ft_strxtrim_quote_ret(str, x, len));
+		return (ft_strxtrim_quote_ret(str, x, len, '\0'));
 	}
 	return (NULL);
 }

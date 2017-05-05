@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 18:34:23 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/12/06 15:53:56 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:04:08 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int			ft_isalpha_str(char *str)
 {
-	while (*str)
+	int		i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (!ft_isalpha(*str) && !ft_isdigit(*str) && \
-				*str != '_' && *str != '-')
+		if (!ft_isalpha(str[i]))
 			return (0);
-		++str;
+		++i;
 	}
 	return (1);
 }

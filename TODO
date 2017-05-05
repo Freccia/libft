@@ -1,0 +1,9 @@
+
+TO_TEST:
+	ft_strstr
+
+ADD FEATURE:	
+	ft_strtrim: make it skip backspaces (?)
+
+MOVE:
+	ft_trim.c --> ft_strxtrim.c

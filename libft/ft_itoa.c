@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 18:05:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/01/30 15:18:18 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:10:35 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 **     the function returns NULL.
 */
 
-static int		ft_nb_len(unsigned int n)
+static int		ft_itoa_nb_len(long int n)
 {
 	int		len;
 
@@ -43,7 +43,7 @@ static int		ft_itoa_sign(int n)
 	return ((n < 0) ? -1 : 1);
 }
 
-static char		*ft_itoa_nbc(unsigned int nb, int nb_len, int sign)
+static char		*ft_itoa_nbc(long int nb, int nb_len, int sign)
 {
 	char			*nbc;
 
@@ -76,12 +76,12 @@ char			*ft_itoa(int n)
 {
 	int				sign;
 	int				nb_len;
-	unsigned int	nb;
+	long int		nb;
 
 	if (n == 0)
 		return (ft_itoa_zero());
 	sign = ft_itoa_sign(n);
 	nb = (sign == -1) ? -n : n;
-	nb_len = ft_nb_len(nb);
+	nb_len = ft_itoa_nb_len(nb);
 	return (ft_itoa_nbc(nb, nb_len, sign));
 }

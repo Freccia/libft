@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 14:59:28 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/01/30 15:22:34 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/04/29 15:06:12 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ size_t		ft_nwords(char const *str, char div)
 
 	i = 0;
 	nwds = 0;
-	while (str[i] != '\0')
+	if (str)
 	{
-		if (i > 0 && str[i] == div && str[i - 1] != div)
+		while (str[++i] != '\0')
+		{
+			if (str[i] != div && str[i - 1] == div)
+				++nwds;
+		}
+		if (!str[i] && i > 0 && str[i - 1] != div)
 			++nwds;
-		else if (i == 0 && str[i] != div)
-			++nwds;
-		++i;
 	}
 	return (nwds);
 }
@@ -51,10 +53,8 @@ char		**ft_strsplit(char const *str, char div)
 
 	i = 0;
 	j = 0;
-	if (!str)
-		return (NULL);
 	nwords = ft_nwords(str, div);
-	if ((tab = ft_tabnew(nwords)) == NULL)
+	if (nwords == 0 || (tab = ft_tabnew(nwords)) == NULL)
 		return (NULL);
 	while (i < (int)ft_strlen(str))
 	{

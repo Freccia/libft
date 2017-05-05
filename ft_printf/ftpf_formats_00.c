@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 14:49:37 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/09/15 18:26:32 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:01:54 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			form_percent(t_struct *st)
 {
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';
 	padding_left(st, 1);
-	ft_putchar(*st->format);
+	ft_putchar_fd(*st->format, FD);
 	padding_right(st, 1);
 }
 

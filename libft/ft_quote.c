@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_quote.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 18:57:01 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/05/05 17:18:52 by lfabbro          ###   ########.fr       */
+/*   Created: 2017/03/29 14:28:05 by lfabbro           #+#    #+#             */
+/*   Updated: 2017/04/04 13:42:26 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** DESCRIPTION:
-**     Outputs the string s to the file descriptor fd.
-*/
-
-int		ft_putstr_fd(char const *s, int fd)
+char	ft_check_quote_bs(char c, char quote, int bs)
 {
-	size_t	len;
+	if (quote == '\0' && !bs && (c == '\'' || c == '\"'))
+		return (c);
+	else if (c == quote && ((!bs && quote == '\"') || quote == '\''))
+		return ('\0');
+	return (quote);
+}
 
-	if (s)
-	{
-		len = ft_strlen(s);
-		write(fd, s, len);
-		return (len);
-	}
-	return (0);
+char	ft_check_quote(char c, char quote)
+{
+	if (quote == '\0' && (c == '\'' || c == '\"'))
+		return (c);
+	else if (c == quote)
+		return ('\0');
+	return (quote);
 }

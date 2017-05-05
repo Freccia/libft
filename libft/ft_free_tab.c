@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab.c                                      :+:      :+:    :+:   */
+/*   ft_tabfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 18:57:53 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/28 13:12:30 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:02:43 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void		ft_tabfree(char **tab)
+{
+	ft_free_tab(tab);
+}
+
 void		ft_free_tab(char **tab)
 {
 	int		i;
 
-	i = 0;
+	i = -1;
 	if (tab != NULL)
 	{
-		while (tab[i] != NULL)
+		while (tab[++i] != NULL)
 		{
 			free(tab[i]);
-			++i;
+			tab[i] = NULL;
 		}
 		free(tab);
+		tab = NULL;
 	}
 }

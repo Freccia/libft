@@ -6,11 +6,11 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 18:22:16 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/01/30 12:03:49 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/05/05 17:02:42 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

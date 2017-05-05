@@ -1,72 +1,38 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit_quote.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 11:04:39 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/03/02 14:04:15 by lfabbro          ###   ########.fr       */
+/*   Created: 2017/03/29 14:30:44 by lfabbro           #+#    #+#             */
+/*   Updated: 2017/03/29 14:30:46 by lfabbro          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-   static size_t	ft_count_words(char const *s, char c)
-   {
-   size_t	nw;
-   int		i;
-   char	quote;
-
-   i = 0;
-   nw = 0;
-   quote = '\0';
-   while (s[i] && s[i] == c)
-   ++i;
-   while (s[i])
-   {
-   if (quote == '\0' && (s[i] == '\'' || s[i] == '\"'))	
-   quote = s[i];
-   else if (s[i] == quote)
-   quote = '\0';
-   if (quote == '\0' && (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0')))
-   ++nw;
-   ++i;
-   }
-   return (nw);
-   }*/
 
 static size_t	ft_count_words(char const *s, char c)
 {
 	size_t	nw;
 	int		i;
-	int		bs;
 	char	quote;
 
 	i = 0;
 	nw = 0;
-	bs = 0;
 	quote = '\0';
 	while (s[i] && s[i] == c)
 		++i;
 	while (s[i])
 	{
-		if (!bs && s[i] == '\\' && quote != '\'')
-			bs = 1;
-		else
-		{
-			if (quote == '\0' && (s[i] == '\'' || (s[i] == '\"' && !bs)))
-				quote = s[i];
-			else if (s[i] == quote)
-				quote = '\0';
-			if (quote == '\0' && !bs && (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0')))
-				++nw;
-			bs = 0;
-		}
+		if (quote == '\0' && (s[i] == '\'' || s[i] == '\"'))
+			quote = s[i];
+		else if (s[i] == quote)
+			quote = '\0';
+		if (quote == '\0' && (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0')))
+			++nw;
 		++i;
 	}
-	ft_printf("nw: %d\n", nw);
 	return (nw);
 }
 
@@ -75,29 +41,19 @@ static size_t	ft_strlen_chr(char const *s, char c)
 	size_t	len;
 	int		i;
 	char	quote;
-	int		bs;
 
 	len = 0;
 	i = 0;
-	bs = 0;
 	quote = '\0';
 	while (s[i] == c)
 		++i;
-	while (s[i] && (s[i] != c || quote || bs))
+	while (s[i] && (s[i] != c || quote))
 	{
-		if (!bs && s[i] == '\\' && quote != '\'')
-			bs = 1;
-		else
-		{
-			if (quote == '\0' && (s[i] == '\'' || ((s[i] == '\"') && !bs)))
-				quote = s[i];
-			else if (s[i] == quote)
-				quote = '\0';
-			//		if ((quote && s[i] != quote) ||
-			//				(!quote && (s[i] != '\'' && s[i] != '\"')))
-			++len;
-			bs = 0;
-		}
+		if (quote == '\0' && (s[i] == '\'' || s[i] == '\"'))
+			quote = s[i];
+		else if (s[i] == quote)
+			quote = '\0';
+		++len;
 		++i;
 	}
 	return (len);
@@ -109,31 +65,21 @@ static char		*ft_strcpy_chr(char const *s, char c)
 	int		i;
 	int		j;
 	char	quote;
-	int		bs;
 
 	if ((cpy = ft_strnew(ft_strlen_chr(s, c))) == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
-	bs = 0;
 	quote = '\0';
 	while (s[i] == c)
 		++i;
-	while (s[i] && (s[i] != c || quote || bs))
+	while (s[i] && (s[i] != c || quote))
 	{
-		if (!bs && s[i] == '\\' && quote != '\"')
-			bs = 1;
-		else
-		{
-			if (quote == '\0' && (s[i] == '\'' || ((s[i] == '\"') && !bs)))
-				quote = s[i];
-			else if (s[i] == quote)
-				quote = '\0';
-			//		if ((quote && s[i] != quote) ||
-			//				(!quote && (s[i] != '\'' && s[i] != '\"')))
-			cpy[j++] = s[i];
-			bs = 1;
-		}
+		if (quote == '\0' && (s[i] == '\'' || s[i] == '\"'))
+			quote = s[i];
+		else if (s[i] == quote)
+			quote = '\0';
+		cpy[j++] = s[i];
 		++i;
 	}
 	return (cpy);

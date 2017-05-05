@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strisdigit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 18:57:01 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/05/05 17:18:52 by lfabbro          ###   ########.fr       */
+/*   Created: 2017/04/02 01:48:25 by lfabbro           #+#    #+#             */
+/*   Updated: 2017/04/02 01:50:31 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** DESCRIPTION:
-**     Outputs the string s to the file descriptor fd.
-*/
-
-int		ft_putstr_fd(char const *s, int fd)
+int		ft_strisdigit(char *str)
 {
-	size_t	len;
+	int		i;
 
-	if (s)
+	i = -1;
+	while (str[++i])
 	{
-		len = ft_strlen(s);
-		write(fd, s, len);
-		return (len);
+		if (!ft_isdigit(str[i]))
+			return (0);
 	}
-	return (0);
+	return (1);
 }
