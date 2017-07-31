@@ -54,7 +54,7 @@ OBJ_LIBFT		= $(LIBFT:.c=.o)
 SRC_PRINTF_PATH	= ./ft_printf/
 SRC_LIBFT_PATH	= ./libft/
 OBJ_PATH		= ./objs/
-INC_PATH		= ./includes ./libft
+INC_PATH		= ./include ./libft
 
 CC				= @gcc
 CFLAGS			= -Wall -Wextra -Werror
