@@ -67,8 +67,8 @@ OBJS_LIBFT		= $(addprefix $(OBJ_PATH),$(OBJ_LIBFT))
 INC				= $(addprefix -I,$(INC_PATH))
 
 ## COLORS ##
-RED				= \033[31;44m
-BLUE			= \033[32;44m
+RED				= \033[31;40m
+BLUE			= \033[32;40m
 ENDC			= \033[0m
 
 .PHONY: makelibft clean fclean re norme
