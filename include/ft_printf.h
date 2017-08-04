@@ -6,22 +6,12 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 11:22:01 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/05/05 16:52:26 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/08/04 21:53:14 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-/*
-**	stdarg:
-**
-**	stdlib:
-**
-**	wchar:
-**
-**	locale:
-*/
 
 # include <stdarg.h>
 # include <stdlib.h>

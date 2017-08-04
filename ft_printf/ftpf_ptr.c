@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_ptr.c                                          :+:      :+:    :+:   */
+/*   ftpf_ptr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 17:46:56 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/05/05 17:02:10 by lfabbro          ###   ########.fr       */
+/*   Created: 2017/08/04 21:51:21 by lfabbro           #+#    #+#             */
+/*   Updated: 2017/08/04 22:06:34 by lfabbro          ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_printf.h"
 
@@ -29,8 +29,8 @@ int				a_ptr(t_struct *st)
 	char			*ptr;
 	unsigned long	n_ptr;
 
-	n_ptr = (unsigned long)st->stargs.ptr;
 	st->stargs.ptr = (void*)va_arg(st->args, void *);
+	n_ptr = (unsigned long)st->stargs.ptr;
 	len = unbr_lenght(n_ptr, 16);
 	ptr = ft_uimaxtoa_base(n_ptr, 16, 'a');
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';
