@@ -40,7 +40,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_tabcpy.c ft_tabcat.c ft_tabpop.c\
 				  ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_puttab.c\
 				  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
-				  ft_memalloc.c\
+				  ft_puthexa.c ft_putptr.c ft_memalloc.c\
 				  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
 				  ft_lstmap.c ft_wstrlen.c ft_abs.c ft_swap.c\
 				  ft_realloc.c ft_getnbr.c ft_wchar_size.c\

@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:44:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/04/14 13:55:09 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/12/08 20:56:50 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,8 @@ int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
+void				ft_puthexa(unsigned long x);
+void				ft_putptr(void *p);
 void				ft_puttab(char **tab_bis);
 int					ft_putchar_fd(char c, int fd);
 int					ft_putstr_fd(char const *s, int fd);
