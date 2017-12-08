@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 20:53:35 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/08 20:54:51 by lfabbro          ###   ########.fr       */
+/*   Updated: 2017/12/08 21:00:44 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void		ft_puthexa(unsigned long x)
 
 	if (x >= 16)
 	{
-		put_hexa(x / 16);
-		put_hexa(x % 16);
+		ft_puthexa(x / 16);
+		ft_puthexa(x % 16);
 	}
 	else
 		ft_putchar(hex[x]);
