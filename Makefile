@@ -43,7 +43,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_puthexa.c ft_putptr.c ft_memalloc.c\
 				  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
 				  ft_lstmap.c ft_wstrlen.c ft_abs.c ft_swap.c\
-				  ft_realloc.c ft_getnbr.c ft_wchar_size.c\
+				  ft_mem_realloc.c ft_getnbr.c ft_wchar_size.c\
 				  ft_nbrlen.c ft_getchar.c\
 				  ft_atol.c ft_atoll.c ft_isnbr.c\
 				  get_next_line.c
@@ -67,22 +67,24 @@ OBJS_LIBFT		= $(addprefix $(OBJ_PATH),$(OBJ_LIBFT))
 INC				= $(addprefix -I,$(INC_PATH))
 
 ## COLORS ##
-RED				= \033[31;40m
-BLUE			= \033[32;40m
-ENDC			= \033[0m
+RED				= \033[0;31;40m
+GREEN			= \033[0;32;40m
+WHITE			= \033[1;37;40m
+ENDC			= \033[0;0m
 
-.PHONY: makelibft clean fclean re norme
+.PHONY: all clean fclean re norme
 
 ## RULES ##
 all :
 	@make $(NAME)
 
 $(NAME): 
-	@(printf '$(BLUE) Making libft $(ENDC)\n')
+	@(printf '$(WHITE) Making libft $(ENDC)\n')
 	@make $(OBJS_PRINTF)
 	@make $(OBJS_LIBFT)
 	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
 	@ranlib $(NAME)
+	@(printf '$(WHITE) [ $(GREEN)OK $(WHITE)] libft $(ENDC)\n')
 
 $(OBJ_PATH)%.o: $(SRC_PRINTF_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
@@ -93,13 +95,14 @@ $(OBJ_PATH)%.o: $(SRC_LIBFT_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean :
-	@(printf '$(RED) Removing libft objs $(ENDC)\n')
+	@(printf '$(WHITE) Removing libft objs $(ENDC)\n')
 	@/bin/rm -f $(OBJS_PRINTF)
 	@/bin/rm -f $(OBJS_LIBFT)
 	@/bin/rm -rf $(OBJ_PATH)
 
 fclean : clean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -fv $(NAME)
+	@(printf '$(WHITE) [ $(RED)REMOVED $(WHITE)] libft $(ENDC)\n')
 
 re : fclean all
 

@@ -6,7 +6,7 @@
 #    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/28 18:44:45 by vlistrat          #+#    #+#              #
-#    Updated: 2017/04/28 18:44:47 by vlistrat         ###   ########.fr        #
+#    Updated: 2017/12/11 16:10:31 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ SRC = ft_strlen.c\
 		ft_wstrlen.c\
 		ft_abs.c\
 		ft_swap.c\
-		ft_realloc.c\
+		ft_mem_realloc.c\
 		ft_getnbr.c\
 		ft_getchar.c\
 		ft_wchar_size.c\
