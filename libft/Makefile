@@ -6,7 +6,7 @@
 #    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/28 18:44:45 by vlistrat          #+#    #+#              #
-#    Updated: 2017/12/11 16:10:31 by lfabbro          ###   ########.fr        #
+#    Updated: 2017/12/11 18:53:03 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,11 @@ NAME = libft.a
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
+
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+WHITE		= \033[1;37m
+ENDC		= \033[0m
 
 SRC = ft_strlen.c\
 		ft_strstr.c\
@@ -57,6 +62,7 @@ SRC = ft_strlen.c\
 		ft_memchr.c\
 		ft_memcmp.c\
 		ft_memdel.c\
+		ft_print_memory.c\
 		ft_strnew.c\
 		ft_strdel.c\
 		ft_strclr.c\
@@ -93,6 +99,7 @@ SRC = ft_strlen.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_putstr_fd.c\
+		ft_print_memory.c\
 		ft_memalloc.c\
 		ft_lstnew.c\
 		ft_lstdelone.c\
@@ -113,13 +120,15 @@ SRC = ft_strlen.c\
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME) :
-	@echo "\033[32;44m Making libft \033[0m"
-	@make $(OBJ)
+all : $(NAME)
+
+$(NAME) : $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@printf "$(WHITE) [ $(GREEN)OK $(WHITE)] $(NAME) $(ENDC)\n"
 
-all : $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean :
 	@rm -rf $(OBJ)

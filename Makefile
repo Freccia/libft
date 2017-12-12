@@ -27,7 +27,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_itoa_base.c ft_imaxtoa_base.c ft_uimaxtoa_base.c ft_itoa.c\
 				  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 				  ft_issticky.c ft_isalpha_str.c ft_isexec.c ft_strisdigit.c\
-				  ft_isquote.c ft_toupper.c ft_tolower.c\
+				  ft_isquote.c ft_toupper.c ft_tolower.c ft_print_memory.c\
 				  ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 				  ft_memmove.c ft_memchr.c ft_memcmp.c ft_memdel.c ft_strnew.c\
 				  ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c\
@@ -36,11 +36,11 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_strsplit_quote.c ft_strsplit_quote_bs.c\
 				  ft_strsplit_wo_quote.c ft_strsplit_wo_quote_bs.c\
 				  ft_strxtrim_quote.c ft_quote.c\
-				  ft_free_tab.c ft_tablen.c ft_tabnew.c ft_tabdup.c ft_tabndup.c\
+				  ft_tabfree.c ft_tablen.c ft_tabnew.c ft_tabdup.c ft_tabndup.c\
 				  ft_tabcpy.c ft_tabcat.c ft_tabpop.c\
 				  ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_puttab.c\
 				  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
-				  ft_puthexa.c ft_putptr.c ft_memalloc.c\
+				  ft_puthexa.c ft_putptr.c ft_print_memory.c ft_memalloc.c\
 				  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
 				  ft_lstmap.c ft_wstrlen.c ft_abs.c ft_swap.c\
 				  ft_mem_realloc.c ft_getnbr.c ft_wchar_size.c\
@@ -78,13 +78,11 @@ ENDC			= \033[0;0m
 all :
 	@make $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJS_PRINTF) $(OBJS_LIBFT)
 	@(printf '$(WHITE) Making libft $(ENDC)\n')
-	@make $(OBJS_PRINTF)
-	@make $(OBJS_LIBFT)
 	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
 	@ranlib $(NAME)
-	@(printf '$(WHITE) [ $(GREEN)OK $(WHITE)] libft $(ENDC)\n')
+	@(printf '$(WHITE) [ $(GREEN)OK $(WHITE)] $(NAME) $(ENDC)\n')
 
 $(OBJ_PATH)%.o: $(SRC_PRINTF_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
