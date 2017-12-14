@@ -36,7 +36,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_strsplit_quote.c ft_strsplit_quote_bs.c\
 				  ft_strsplit_wo_quote.c ft_strsplit_wo_quote_bs.c\
 				  ft_strxtrim_quote.c ft_quote.c\
-				  ft_free_tab.c ft_tablen.c ft_tabnew.c ft_tabdup.c ft_tabndup.c\
+				  ft_tabfree.c ft_tablen.c ft_tabnew.c ft_tabdup.c ft_tabndup.c\
 				  ft_tabcpy.c ft_tabcat.c ft_tabpop.c\
 				  ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_puttab.c\
 				  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
@@ -46,6 +46,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_mem_realloc.c ft_getnbr.c ft_wchar_size.c\
 				  ft_nbrlen.c ft_getchar.c\
 				  ft_atol.c ft_atoll.c ft_isnbr.c\
+					print_memory.c\
 				  get_next_line.c
 
 OBJ_LIBFT		= $(LIBFT:.c=.o)
@@ -57,7 +58,7 @@ OBJ_PATH		= ./objs/
 INC_PATH		= ./include ./libft
 
 CC				= @gcc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -fPIC
 
 ## OBJECTS ##
 OBJS_PRINTF		= $(addprefix $(OBJ_PATH),$(OBJ_PRINTF))

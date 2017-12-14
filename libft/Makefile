@@ -108,6 +108,7 @@ SRC = ft_strlen.c\
 		ft_getchar.c\
 		ft_wchar_size.c\
 		ft_nbrlen.c\
+		print_memory.c\
 		get_next_line.c\
 		ft_pow.c
 
