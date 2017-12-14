@@ -46,6 +46,7 @@ LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
 				  ft_mem_realloc.c ft_getnbr.c ft_wchar_size.c\
 				  ft_nbrlen.c ft_getchar.c\
 				  ft_atol.c ft_atoll.c ft_isnbr.c\
+					print_memory.c\
 				  get_next_line.c
 
 OBJ_LIBFT		= $(LIBFT:.c=.o)
@@ -57,7 +58,7 @@ OBJ_PATH		= ./objs/
 INC_PATH		= ./include ./libft
 
 CC				= @gcc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -fPIC
 
 ## OBJECTS ##
 OBJS_PRINTF		= $(addprefix $(OBJ_PATH),$(OBJ_PRINTF))
