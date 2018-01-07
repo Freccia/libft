@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 18:34:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/04/10 15:13:01 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/01/07 16:47:22 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char		*uimaxtoa_base_return(long long value, int base, char set)
 	char		*num;
 
 	size = get_size(value, base);
-	if ((num = (char*)malloc(sizeof(char) * size)) == NULL)
+	if ((num = (char*)malloc(sizeof(char) * size + 1)) == NULL)
 		return (NULL);
 	num[size] = '\0';
 	while (value)
