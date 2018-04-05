@@ -3,107 +3,187 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+         #
+#    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/01/27 11:20:09 by lfabbro           #+#    #+#              #
-#   Updated: 2016/09/21 13:54:48 by lfabbro          ###   ########.fr         #
+#    Created: 2018/01/04 15:18:12 by lfabbro           #+#    #+#              #
+#    Updated: 2018/04/05 18:18:57 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= libft.a
+# Binaries
+PROJECT		?= libft
 
-## SOURCES ##
-PRINTF			= ft_printf.c ftpf_lenght.c ftpf_parse.c ftpf_set.c\
-				  ftpf_padding.c ftpf_conversions.c ftpf_handle_wchar.c\
-				  ftpf_formats_00.c ftpf_formats_01.c ftpf_char.c ftpf_hex.c\
-				  ftpf_int.c ftpf_octal.c ftpf_ptr.c ftpf_str.c\
-				  ftpf_uint.c ftpf_wstr.c ftpf_wchar.c
+# Sources ft_printf
+SRC_PRINTF	= \
+	printf/ft_printf.c  printf/ftpf_lenght.c  printf/ftpf_parse.c  \
+	printf/ftpf_conversions.c  printf/ftpf_handle_wchar.c  \
+	printf/ftpf_formats_00.c   printf/ftpf_formats_01.c  \
+	printf/ftpf_set.c   printf/ftpf_padding.c  \
+	printf/ftpf_int.c   printf/ftpf_octal.c  \
+	printf/ftpf_char.c  printf/ftpf_hex.c  \
+	printf/ftpf_ptr.c   printf/ftpf_str.c  \
+	printf/ftpf_uint.c  printf/ftpf_wstr.c  printf/ftpf_wchar.c
 
-OBJ_PRINTF		= $(PRINTF:.c=.o)
+#  Sources
+SRC_NAME		=  \
+	$(SRC_PRINTF)  \
+	ctrl/ch_ctrl1.c  ctrl/ch_ctrl2.c  ctrl/file_ctrl.c  ctrl/nbr_ctrl.c  \
+	ctrl/str_ctrl.c  ctrl/quote_ctrl.c  \
+	str/ft_strcat.c  str/ft_strchr.c  str/ft_strclr.c  str/ft_strcmp.c  \
+	str/ft_strcpy.c  str/ft_strdel.c  str/ft_strdup.c  str/ft_strequ.c  \
+	str/ft_striter.c  str/ft_striteri.c  str/ft_strjoin.c  str/ft_strlcat.c  \
+	str/ft_strlen.c  str/ft_strmap.c  str/ft_strmapi.c  str/ft_strncat.c  \
+	str/ft_strncmp.c  str/ft_strncpy.c  str/ft_strndup.c  str/ft_strnequ.c  \
+	str/ft_strnew.c  str/ft_strnstr.c  str/ft_strrchr.c  str/ft_strsplit.c  \
+	str/ft_strsplit_quote.c  str/ft_strsplit_quote_bs.c  \
+	str/ft_strsplit_wo_quote.c  str/ft_strsplit_wo_quote_bs.c  \
+	str/ft_strstr.c  str/ft_strsub.c  str/ft_strtrim.c  str/ft_strxchr.c  \
+	str/ft_strxtrim.c  str/ft_strxtrim_quote.c  str/ft_xword.c  \
+	str/ft_toupper.c  str/ft_tolower.c  str/ft_wchar_size.c  str/ft_wstrlen.c  \
+	io/getch.c  io/print_memory.c  io/putch.c  io/putnbr.c  io/putstr.c\
+	tab/tab_mem.c  tab/tab_mov.c  \
+	mem/ft_memalloc.c  mem/ft_memccpy.c  mem/ft_memchr.c  mem/ft_memcmp.c  \
+	mem/ft_memcpy.c  mem/ft_memdel.c  mem/ft_memmove.c  mem/ft_mem_realloc.c  \
+	mem/ft_memset.c  mem/ft_bzero.c  mem/ft_swap.c  \
+	lst/lst_mem.c  lst/lst_mov.c  \
+	math/ft_abs.c  math/ft_pow.c  \
+	conv/ft_atoi.c  conv/ft_atol.c  conv/ft_atoll.c  conv/ft_itoa_base.c  \
+	conv/ft_itoa.c  conv/ft_lltoa_base.c  conv/ft_nbrlen.c  \
+	conv/ft_ulltoa_base.c  \
+	get_next_line.c
 
-LIBFT			= ft_strlen.c ft_strstr.c ft_strcpy.c ft_strdup.c ft_strndup.c\
-				  ft_strcat.c ft_strcmp.c ft_strncpy.c ft_strncat.c ft_strlcat.c\
-				  ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c\
-				  ft_itoa_base.c ft_imaxtoa_base.c ft_uimaxtoa_base.c ft_itoa.c\
-				  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
-				  ft_issticky.c ft_isalpha_str.c ft_isexec.c ft_strisdigit.c\
-				  ft_isquote.c ft_toupper.c ft_tolower.c ft_print_memory.c\
-				  ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
-				  ft_memmove.c ft_memchr.c ft_memcmp.c ft_memdel.c ft_strnew.c\
-				  ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c\
-				  ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c\
-				  ft_strtrim.c ft_strxtrim.c ft_strsplit.c\
-				  ft_strsplit_quote.c ft_strsplit_quote_bs.c\
-				  ft_strsplit_wo_quote.c ft_strsplit_wo_quote_bs.c\
-				  ft_strxtrim_quote.c ft_quote.c\
-				  ft_tabfree.c ft_tablen.c ft_tabnew.c ft_tabdup.c ft_tabndup.c\
-				  ft_tabcpy.c ft_tabcat.c ft_tabpop.c\
-				  ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_puttab.c\
-				  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
-				  ft_puthexa.c ft_putptr.c ft_print_memory.c ft_memalloc.c\
-				  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
-				  ft_lstmap.c ft_wstrlen.c ft_abs.c ft_swap.c\
-				  ft_mem_realloc.c ft_getnbr.c ft_wchar_size.c\
-				  ft_nbrlen.c ft_getchar.c\
-				  ft_atol.c ft_atoll.c ft_isnbr.c\
-				  print_memory.c\
-				  get_next_line.c
+# Directories
+SRC_PATH	= src
+INC_PATH	= include
+TEST_PATH	= test
 
-OBJ_LIBFT		= $(LIBFT:.c=.o)
+# Compilation flags
+CFLAGS		+= -g    #-O3
 
-## PATHS ##
-SRC_PRINTF_PATH	= ./ft_printf/
-SRC_LIBFT_PATH	= ./libft/
-OBJ_PATH		= ./objs/
-INC_PATH		= ./include ./libft
+OBJ_DIR		?= obj
+OBJ_PATH	?= $(OBJ_DIR)/rel
+OBJ			= $(addprefix $(OBJ_PATH)/, $(SRC_NAME:.c=.o))
+DEP			= $(OBJ:%.o=%.d)
+# Includes
+INC			= $(addprefix -I./,$(INC_PATH))
 
-CC				= @gcc
-CFLAGS			= -Wall -Wextra -Werror -fPIC
+# Compilation/Linking Flags for the differents public rules
+WFLAGS = -Wextra -Wall #-Werror
+RCFLAGS = $(WFLAGS) -Werror -O2 -march=native  # release
+DCFLAGS = $(WFLAGS) -g3 -DDEBUG  # debug
+SCFLAGS = $(DCFLAGS) -fsanitize=address,undefined -ferror-limit=5  # sanitize
+WWFLAGS = $(WFLAGS) -Wpedantic -Wshadow -Wconversion -Wcast-align \
+  -Wstrict-prototypes -Wmissing-prototypes -Wunreachable-code -Winit-self \
+  -Wmissing-declarations -Wfloat-equal -Wbad-function-cast -Wundef \
+  -Waggregate-return -Wstrict-overflow=5 -Wold-style-definition -Wpadded \
+  -Wredundant-decls  # moar warnings
 
-## OBJECTS ##
-OBJS_PRINTF		= $(addprefix $(OBJ_PATH),$(OBJ_PRINTF))
-OBJS_LIBFT		= $(addprefix $(OBJ_PATH),$(OBJ_LIBFT))
+# Compilation
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	CC			= clang
+	CCFLAGS		+= -D LINUX
+endif
+ifeq ($(UNAME_S),Darwin)
+	CC			= clang
+	CCFLAGS += -D OSX
+endif
 
-## INCLUDES ##
-INC				= $(addprefix -I,$(INC_PATH))
+# Commands
+MAKE		?= make -j$(shell nproc 2>/dev/null || echo 4)
+SUB_MAKE	= make -C
+MKDIR		= mkdir -p
+RMDIR		= rm -rf
+RM			= rm -f
 
-## COLORS ##
-RED				= \033[0;31;40m
-GREEN			= \033[0;32;40m
-WHITE			= \033[1;37;40m
-ENDC			= \033[0;0m
+# default to "pretty" Makefile, but you can run ´VERBOSE=t make´
+ifndef VERBOSE
+ ifndef TRAVIS
+.SILENT:
+ endif
+endif
+PRINTF		= test $(VERBOSE)$(TRAVIS) || printf
 
-.PHONY: all clean fclean re norme
+# Colors
+RED			= \033[31m
+GREEN		= \033[32m
+YELLOW		= \033[33m
+BLUE		= \033[34m
+WHITE		= \033[37m
+TODO1		= \033[0K  #TODO
+TODO2		= \033[17C #TODO
+ENDC		= \033[0m
+CR			= \r
 
-## RULES ##
-all :
-	@make $(NAME)
 
-$(NAME): $(OBJS_PRINTF) $(OBJS_LIBFT)
-	@(printf '$(WHITE) Making libft $(ENDC)\n')
-	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
-	@ranlib $(NAME)
-	@(printf '$(WHITE) [ $(GREEN)OK $(WHITE)] $(NAME) $(ENDC)\n')
+##
+## PUBLIC RULES
+##
 
-$(OBJ_PATH)%.o: $(SRC_PRINTF_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+# Builds
+all:
+	@$(PRINTF) "%-20s"    "$(PROJECT).a: lib"
+	+$(MAKE) $(PROJECT).a   "CFLAGS = $(RCFLAGS)"  "OBJ_PATH = $(OBJ_DIR)/rel"
+	@$(PRINTF) "$(CR)$(GREEN)✔$(ENDC)\n"
 
-$(OBJ_PATH)%.o: $(SRC_LIBFT_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+dev:
+	@$(PRINTF) "%-20s"    "$(PROJECT).dev: bin"
+	+$(MAKE) $(PROJECT).dev.a "PROJECT = $(PROJECT).dev" "CFLAGS = $(DCFLAGS)" \
+		"OBJ_PATH = $(OBJ_DIR)/dev"
+	@$(PRINTF) "$(CR)$(GREEN)✔$(ENDC)\n"
 
-clean :
-	@(printf '$(WHITE) Removing libft objs $(ENDC)\n')
-	@/bin/rm -f $(OBJS_PRINTF)
-	@/bin/rm -f $(OBJS_LIBFT)
-	@/bin/rm -rf $(OBJ_PATH)
+san:
+	@$(PRINTF) "%-20s"    "$(PROJECT).san: bin"
+	+$(MAKE) $(PROJECT).san.a "PROJECT = $(PROJECT).san" "CFLAGS = $(SCFLAGS)" \
+		"OBJ_PATH = $(OBJ_DIR)/san"
+	@$(PRINTF) "$(CR)$(GREEN)✔$(ENDC)\n"
 
-fclean : clean
-	@/bin/rm -fv $(NAME)
-	@(printf '$(WHITE) [ $(RED)REMOVED $(WHITE)] libft $(ENDC)\n')
+mecry:
+	@$(PRINTF) "%-20s"    "$(PROJECT).a: omg"
+	+$(MAKE) $(PROJECT).a  "CFLAGS = $(WWFLAGS)"  "OBJ_PATH = $(OBJ_DIR)/rel"
+	@$(PRINTF) "$(CR)$(GREEN)✔$(ENDC)\n"
 
-re : fclean all
+# Other rules
+test:
+	@$(PRINTF) "%-20s"    "No tests yet."
 
-norme :
-	norminette **/*.[ch]
+clean:
+	@$(RMDIR) $(OBJ_DIR) $(PROJECT).dSYM
+	@$(PRINTF) "%-20s$(GREEN)✔$(ENDC)\n"    "$(PROJECT): $@"
+
+fclean: clean
+	@$(RM) $(PROJECT).a $(PROJECT).dev.a $(PROJECT).san.a
+	@$(PRINTF) "%-20s$(GREEN)✔$(ENDC)\n"    "$(PROJECT): $@"
+
+re: fclean all
+
+norme:
+	@$(PRINTF) "$(WHITE) Norminette $(ENDC)\n"
+	norminette $(SRC_PATH) $(INC_PATH)
+
+
+##
+## PRIVATE RULES
+##
+
+# (link) project
+$(PROJECT).a: $(OBJ)
+	@$(PRINTF) "$(CR)$(TODO1)$(TODO2)$(WHITE)  $@  $(ENDC)"
+	ar -rc $(PROJECT).a $(OBJ)
+	ranlib $(PROJECT).a
+
+# (compile) objects
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | dirs #$(OBJ_PATH)
+	@$(PRINTF) "$(CR)$(TODO1)$(TODO2)$(WHITE)  $<  $(ENDC)"
+	$(CC) $(CFLAGS) $(INC)  -c $< -o $@
+
+# create directory for compilation sub-products
+#$(OBJ_PATH):
+dirs:
+	$(MKDIR) $(dir $(OBJ))
+
+# read dependencies list generated by -MMD flag
+-include $(DEP)
+
+# avoid conflicts between rules and files/folders names
+.PHONY:	all dev san mecry clean fclean re norme $(PROJECT).a
