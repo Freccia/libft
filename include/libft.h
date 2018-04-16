@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:44:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 17:31:16 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 18:02:50 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,16 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_printf(const char *format, ...);
-int					ft_printfd(int fd, const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
 int					ft_vdprintf(int fd, const char *format, va_list args);
 int					get_next_line(int fd, char **line);
 int					ft_getopt(int ac, char **av, const char *optstr);
 int					ft_exit(int ecode, char const *format, ...);
+
+/*
+**	For Compatibility with old projects
+*/
+int					ft_printfd(int fd, const char *format, ...);
 
 
 /*
