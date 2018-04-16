@@ -6,7 +6,7 @@
 /*   By: lfabbro <>                                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 18:50:14 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/15 19:28:00 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 10:59:35 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ static int	ft_getopt2(int ac, char **av, const char *optstr)
 	if (oli[1] != ':')
 	{
 		/* don't need argument */
-		optarg = NULL;
+		g_optarg = NULL;
 		if (*g_place == 0)
-			++optind;
+			++g_optind;
 	}
 	else
 		ft_getopt3(ac, av, optstr);
