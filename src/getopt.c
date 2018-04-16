@@ -6,17 +6,11 @@
 /*   By: lfabbro <>                                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 18:50:14 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 16:18:16 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 18:07:19 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "getopt.h"
-
-#define BADCH '?'
-#define BADARG ':'
-#define EMSG ""
-#define ERR0 "%s: %c: illegal option\n"
-#define ERR1 "%s: %c: option requires an argument\n"
 
 char		*g_optarg = 0;
 int			g_optind = 1;
