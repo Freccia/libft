@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:55:41 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 15:45:11 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:51:11 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				a_hex(t_struct *st, va_list args, char set)
 	lenght = left_hex(st, set);
 	if (precision_hex(st, lenght) < 0)
 		return (0);
-	hex = ft_uimaxtoa_base(st->stargs.u_nbr, 16, set);
+	hex = ft_ulltoa_base(st->stargs.u_nbr, 16, set);
 	st->pc += ft_putstr_fd(hex, FD);
 	padding_right(st, lenght);
 	free(hex);

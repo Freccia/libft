@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 15:45:50 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:50:36 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				a_uint(t_struct *st, va_list args)
 	lenght = left_uint(st);
 	if (precision_uint(st, lenght) < 0)
 		return (0);
-	unbr = ft_uimaxtoa_base(st->stargs.u_nbr, 10, 'a');
+	unbr = ft_ulltoa_base(st->stargs.u_nbr, 10, 'a');
 	st->pc += ft_putstr_fd(unbr, FD);
 	right_uint(st, lenght);
 	free(unbr);

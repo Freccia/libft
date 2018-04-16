@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:44:33 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/11 18:37:36 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 11:37:31 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
-char				*ft_imaxtoa_base(long long value, int base, char set);
-char				*ft_uimaxtoa_base(long long value, int base, char set);
+char				*ft_lltoa_base(long long value, int base, char set);
+char				*ft_ulltoa_base(long long value, int base, char set);
 
 /*
 **	IS .. WHAT?

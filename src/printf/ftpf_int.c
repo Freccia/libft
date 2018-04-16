@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:55:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 15:44:59 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:51:01 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				a_int(t_struct *st, va_list args)
 	lenght = left_int(st);
 	if (precision_int(st, lenght) < 0)
 		return (0);
-	nbr = ft_imaxtoa_base(st->stargs.nbr, 10, 'a');
+	nbr = ft_lltoa_base(st->stargs.nbr, 10, 'a');
 	st->pc += ft_putstr_fd(nbr, FD);
 	padding_right(st, lenght);
 	free(nbr);
