@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:04 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:20:40 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 11:36:15 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				a_octal(t_struct *st)
 	lenght = left_octal(st);
 	if (precision_octal(st, lenght) < 0)
 		return (0);
-	oct = ft_uimaxtoa_base(st->stargs.u_nbr, 8, 'a');
+	oct = ft_ulltoa_base(st->stargs.u_nbr, 8, 'a');
 	st->pc += ft_putstr_fd(oct, FD);
 	padding_right(st, lenght);
 	free(oct);
