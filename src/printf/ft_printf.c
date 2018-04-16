@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 11:44:39 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 18:04:56 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 18:09:45 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int				ft_printfd(int fd, const char *format, ...)
 	FD = fd;
 	va_start(args, format);
 	set_init_st(st, format);
-	ft_vdprint(fd, format, args);
+	ft_vdprintf(fd, format, args);
 	va_end(args);
 	pc = st->pc;
 	free(st);
