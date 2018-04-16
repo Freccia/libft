@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:55:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:20:13 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:44:59 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int		left_int(t_struct *st)
 	return (lenght);
 }
 
-int				a_int(t_struct *st)
+int				a_int(t_struct *st, va_list args)
 {
 	int		lenght;
 	char	*nbr;
@@ -75,7 +75,7 @@ int				a_int(t_struct *st)
 	lenght = 0;
 	if (*st->format == 'D')
 		st->lmod.l = 1;
-	conversion_di(st);
+	conversion_di(st, args);
 	lenght = left_int(st);
 	if (precision_int(st, lenght) < 0)
 		return (0);

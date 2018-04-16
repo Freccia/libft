@@ -6,19 +6,19 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:41 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:21:38 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:41:08 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			a_str(t_struct *st)
+int			a_str(t_struct *st, va_list args)
 {
 	int		len;
 	int		i;
 
 	i = 0;
-	st->stargs.str = (char*)va_arg(st->args, int *);
+	st->stargs.str = (char*)va_arg(args, int *);
 	st->stargs.str = (st->stargs.str) ? st->stargs.str : "(null)";
 	len = str_lenght(st);
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';

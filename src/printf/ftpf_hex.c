@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:55:41 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:20:03 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:45:11 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ static int		left_hex(t_struct *st, int set)
 	return (lenght);
 }
 
-int				a_hex(t_struct *st, char set)
+int				a_hex(t_struct *st, va_list args, char set)
 {
 	int		lenght;
 	char	*hex;
 
-	conversion_oux(st);
+	conversion_oux(st, args);
 	lenght = left_hex(st, set);
 	if (precision_hex(st, lenght) < 0)
 		return (0);

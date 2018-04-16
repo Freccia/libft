@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:20 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:21:05 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:46:42 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,30 @@ int			parse_lenght_modifier(t_struct *st)
 	return (0);
 }
 
-int			parse_args(t_struct *st)
+int			parse_args(t_struct *st, va_list args)
 {
 	if (*st->format == 'd' || *st->format == 'i' || *st->format == 'D')
-		return (a_int(st));
+		return (a_int(st, args));
 	else if (*st->format == 'x')
-		return (a_hex(st, 'a'));
+		return (a_hex(st, args, 'a'));
 	else if (*st->format == 'X')
-		return (a_hex(st, 'A'));
+		return (a_hex(st, args, 'A'));
 	else if (*st->format == 'u' || *st->format == 'U')
-		return (a_uint(st));
+		return (a_uint(st, args));
 	else if (*st->format == 'o' || *st->format == 'O')
-		return (a_octal(st));
+		return (a_octal(st, args));
 	else if (*st->format == '%')
 		return (1);
 	else if (*st->format == 's' && !st->lmod.l)
-		return (a_str(st));
+		return (a_str(st, args));
 	else if ((*st->format == 'S') || (*st->format == 's' && st->lmod.l))
-		return (a_wstr(st));
+		return (a_wstr(st, args));
 	else if (*st->format == 'c' && !st->lmod.l)
-		return (a_char(st, 1));
+		return (a_char(st, args, 1));
 	else if ((*st->format == 'C') || (*st->format == 'c' && st->lmod.l))
-		return (a_wchar(st));
+		return (a_wchar(st, args));
 	else if (*st->format == 'p')
-		return (a_ptr(st));
+		return (a_ptr(st, args));
 	else
-		return (a_char(st, 0));
+		return (a_char(st, args, 0));
 }

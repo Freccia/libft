@@ -6,13 +6,13 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:18:46 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:18:47 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:40:41 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			a_char(t_struct *st, int va)
+int			a_char(t_struct *st, va_list args, int va)
 {
 	if (va)
 	{
@@ -20,7 +20,7 @@ int			a_char(t_struct *st, int va)
 				st->lmod.j || st->lmod.z)
 			return ((st->pc = -1));
 		else
-			st->stargs.ch = (unsigned char)va_arg(st->args, int);
+			st->stargs.ch = (unsigned char)va_arg(args, int);
 	}
 	else
 		st->stargs.ch = *st->format;

@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 11:22:01 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/08/04 21:53:14 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:44:56 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct		s_args
 typedef struct		s_struct
 {
 	const char		*format;
-	va_list			args;
 	int				pc;
 	t_args			stargs;
 	t_flags			flags;
@@ -77,26 +76,26 @@ int					ft_printfd(int fd, const char *format, ...);
 */
 void				parse_flags(t_struct *st);
 int					parse_lenght_modifier(t_struct *st);
-int					parse_args(t_struct *st);
+int					parse_args(t_struct *st, va_list args);
 
 /*
 **  CONVERSION ARG
 */
-int					conversion_di(t_struct *st);
-int					conversion_oux(t_struct *st);
+int					conversion_di(t_struct *st, va_list args);
+int					conversion_oux(t_struct *st, va_list args);
 
 /*
 ** ARGUMENTS
 */
-int					a_int(t_struct *st);
-int					a_hex(t_struct *st, char set);
-int					a_uint(t_struct *st);
-int					a_octal(t_struct *st);
-int					a_str(t_struct *st);
-int					a_char(t_struct *st, int va);
-int					a_wstr(t_struct *st);
-int					a_wchar(t_struct *st);
-int					a_ptr(t_struct *st);
+int					a_int(t_struct *st, va_list args);
+int					a_hex(t_struct *st, va_list args, char set);
+int					a_uint(t_struct *st, va_list args);
+int					a_octal(t_struct *st, va_list args);
+int					a_str(t_struct *st, va_list args);
+int					a_char(t_struct *st, va_list args, int va);
+int					a_wstr(t_struct *st, va_list args);
+int					a_wchar(t_struct *st, va_list args);
+int					a_ptr(t_struct *st, va_list args);
 
 /*
 ** FORMATS 00-01

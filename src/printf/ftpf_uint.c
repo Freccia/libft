@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:51 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:21:48 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:45:50 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int		right_uint(t_struct *st, int lenght)
 	return (1);
 }
 
-int				a_uint(t_struct *st)
+int				a_uint(t_struct *st, va_list args)
 {
 	int		lenght;
 	char	*unbr;
@@ -57,7 +57,7 @@ int				a_uint(t_struct *st)
 	lenght = 0;
 	if (*st->format == 'U')
 		st->lmod.l = 1;
-	conversion_oux(st);
+	conversion_oux(st, args);
 	lenght = left_uint(st);
 	if (precision_uint(st, lenght) < 0)
 		return (0);

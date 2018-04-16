@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:51:21 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:21:15 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:40:56 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static int		precision_ptr(t_struct *st, int len)
 	return (1);
 }
 
-int				a_ptr(t_struct *st)
+int				a_ptr(t_struct *st, va_list args)
 {
 	int				len;
 	char			*ptr;
 	unsigned long	n_ptr;
 
-	st->stargs.ptr = (void*)va_arg(st->args, void *);
+	st->stargs.ptr = (void*)va_arg(args, void *);
 	n_ptr = (unsigned long)st->stargs.ptr;
 	len = unbr_lenght(n_ptr, 16);
 	ptr = ft_uimaxtoa_base(n_ptr, 16, 'a');

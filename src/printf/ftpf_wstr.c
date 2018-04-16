@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:57:04 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:22:12 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:41:44 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static int			ft_putwstr_t(int fd, wchar_t *wstr, int len)
 	return (ret);
 }
 
-int					a_wstr(t_struct *st)
+int					a_wstr(t_struct *st, va_list args)
 {
 	int		pc;
 	int		len;
 
 	pc = 0;
-	st->stargs.wstr = (wchar_t*)va_arg(st->args, wchar_t *);
+	st->stargs.wstr = (wchar_t*)va_arg(args, wchar_t *);
 	st->stargs.wstr = (st->stargs.wstr) ? st->stargs.wstr : L"(null)";
 	len = wstr_lenght(st);
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';

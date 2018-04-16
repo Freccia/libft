@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 21:56:04 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/12/12 14:20:40 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/04/16 15:45:27 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int		left_octal(t_struct *st)
 	return (lenght);
 }
 
-int				a_octal(t_struct *st)
+int				a_octal(t_struct *st, va_list args)
 {
 	int		lenght;
 	char	*oct;
@@ -73,7 +73,7 @@ int				a_octal(t_struct *st)
 	lenght = 0;
 	if (*st->format == 'O')
 		st->lmod.l = 1;
-	conversion_oux(st);
+	conversion_oux(st, args);
 	lenght = left_octal(st);
 	if (precision_octal(st, lenght) < 0)
 		return (0);
