@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 15:18:12 by lfabbro           #+#    #+#              #
-#    Updated: 2018/04/16 17:30:44 by lfabbro          ###   ########.fr        #
+#    Updated: 2018/04/17 12:04:46 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ DEP			= $(OBJ:%.o=%.d)
 INC			= $(addprefix -I./,$(INC_PATH))
 
 # Compilation/Linking Flags for the differents public rules
-WFLAGS = -Wextra -Wall #-Werror
+WFLAGS = $(CFLAGS) -Wextra -Wall #-Werror
 RCFLAGS = $(WFLAGS) -Werror -O2 -march=native  # release
 DCFLAGS = $(WFLAGS) -g3 -DDEBUG  # debug
 SCFLAGS = $(DCFLAGS) -fsanitize=address,undefined -ferror-limit=5  # sanitize
