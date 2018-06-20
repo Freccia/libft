@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 11:44:39 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/16 18:09:45 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/20 18:22:51 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int				ft_vdprintf(int fd, const char *format, va_list args)
 	int			pc;
 
 	if ((st = malloc(sizeof(t_struct))) == NULL)
-	return (0);
+		return (0);
 	FD = fd;
 	set_init_st(st, format);
 	ft_print(st, args, 0);
@@ -72,10 +72,10 @@ int				ft_dprintf(int fd, const char *format, ...)
 	return (pc);
 }
 
-
 /*
 ** For Compatibility with old projects
 */
+
 int				ft_printfd(int fd, const char *format, ...)
 {
 	va_list		args;

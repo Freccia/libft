@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tab_mem.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfabbro <>                                 +#+  +:+       +#+        */
+/*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 16:32:22 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/05 16:34:38 by lfabbro          ###   ########.fr       */
+/*   Created: 2018/06/20 18:24:19 by lfabbro           #+#    #+#             */
+/*   Updated: 2018/06/20 18:24:30 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char		**ft_tabnew(size_t size)
 	return (new);
 }
 
-size_t			ft_tablen(char **tab)
+size_t		ft_tablen(char **tab)
 {
 	size_t		len;
 

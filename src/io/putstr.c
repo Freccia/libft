@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   putstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfabbro <>                                 +#+  +:+       +#+        */
+/*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 16:21:15 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/05 16:59:29 by lfabbro          ###   ########.fr       */
+/*   Created: 2018/06/20 18:21:14 by lfabbro           #+#    #+#             */
+/*   Updated: 2018/06/20 18:23:28 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int			ft_putstr(char const *s)
+int		ft_putstr(char const *s)
 {
 	if (s)
 		return (write(1, s, (int)ft_strlen(s)));
@@ -54,7 +54,7 @@ int		ft_putendl_fd(char const *s, int fd)
 	return (len);
 }
 
-void			ft_puttab(char **tab)
+void	ft_puttab(char **tab)
 {
 	int		i;
 

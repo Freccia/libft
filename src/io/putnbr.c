@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfabbro <>                                 +#+  +:+       +#+        */
+/*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 16:22:07 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/04/05 16:59:50 by lfabbro          ###   ########.fr       */
+/*   Created: 2018/06/20 18:02:34 by lfabbro           #+#    #+#             */
+/*   Updated: 2018/06/20 18:02:41 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		ft_putnbr(int n)
 		ft_putchar(nb + '0');
 }
 
-int		ft_putnbr_fd(int n, int fd)
+int			ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nb;
 	int				len;
