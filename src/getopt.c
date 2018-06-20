@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/20 18:03:35 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/06/20 18:20:50 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/20 18:30:33 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int	ft_getopt2(int ac, char **av, const char *optstr)
 **     if the program (eg su) is looking for it.
 */
 
-static int	ft_getopt1(int ac, char **av, const char *optstr)
+static int	ft_getopt1(int ac, const char *optstr)
 {
 	if (g_optind >= ac || *g_place++ != '-')
 	{
@@ -115,7 +115,7 @@ int			ft_getopt(int ac, char **av, const char *optstr)
 	{
 		g_optreset = 0;
 		g_place = av[g_optind];
-		if (ft_getopt1(ac, av, optstr) == -1)
+		if (ft_getopt1(ac, optstr) == -1)
 			return (-1);
 	}
 	else
