@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/20 18:03:35 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/06/25 12:18:43 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/25 12:36:38 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ static int	ft_getopt1(int ac, const char *optstr)
 
 int			ft_getopt(int ac, char **av, const char *optstr)
 {
-	g_place = EMSG;
 	if (g_optreset || *g_place == 0)
 	{
 		g_optreset = 0;
