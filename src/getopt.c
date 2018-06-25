@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/20 18:03:35 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/06/25 12:13:29 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/25 12:18:43 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ static int	ft_getopt1(int ac, const char *optstr)
 	if (g_optind >= ac || *g_place++ != '-')
 	{
 		g_place = EMSG;
-		ft_printf("ERR1\n");
 		return (-1);
 	}
 	g_optopt = *g_place++;
@@ -98,7 +97,6 @@ static int	ft_getopt1(int ac, const char *optstr)
 	{
 		++g_optind;
 		g_place = EMSG;
-		ft_printf("ERR2\n");
 		return (-1);
 	}
 	if (g_optopt == 0)
