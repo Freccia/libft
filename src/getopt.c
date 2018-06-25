@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/20 18:03:35 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/06/20 18:30:33 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/25 12:13:29 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char		*g_optarg = 0;
 int			g_optind = 1;
 int			g_optopt = 0;
 int			g_opterr = 1;
-static int	g_optreset = 0;
+int			g_optreset = 0;
 static char	*g_place = EMSG;
 
 /*
@@ -78,6 +78,7 @@ static int	ft_getopt2(int ac, char **av, const char *optstr)
 }
 
 /*
+** RESET GLOBALS
 ** 88. "--" => end of options
 ** 95. Argument is absent or is not an option
 ** 103. Solitary '-', treat as a '-' option
@@ -89,13 +90,15 @@ static int	ft_getopt1(int ac, const char *optstr)
 	if (g_optind >= ac || *g_place++ != '-')
 	{
 		g_place = EMSG;
+		ft_printf("ERR1\n");
 		return (-1);
 	}
 	g_optopt = *g_place++;
-	if ((g_optopt = *g_place++) && g_optopt == '-' && *g_place == 0)
+	if (g_optopt == '-' && *g_place == 0)
 	{
 		++g_optind;
 		g_place = EMSG;
+		ft_printf("ERR2\n");
 		return (-1);
 	}
 	if (g_optopt == 0)
@@ -103,7 +106,8 @@ static int	ft_getopt1(int ac, const char *optstr)
 		g_place = EMSG;
 		if (ft_strchr(optstr, '-') == NULL)
 			return (-1);
-		g_optopt = '-';
+		else
+			g_optopt = '-';
 	}
 	return (0);
 }
