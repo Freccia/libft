@@ -6,7 +6,7 @@
 /*   By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 13:54:04 by lfabbro           #+#    #+#             */
-/*   Updated: 2017/02/17 13:53:18 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/06/25 15:07:15 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef struct		s_gnl
 }					t_gnl;
 
 int					get_next_line(int const fd, char **line);
+int					get_next_line_nl(int const fd, char **line);
 
 #endif

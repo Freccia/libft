@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 15:18:12 by lfabbro           #+#    #+#              #
-#    Updated: 2018/04/17 12:04:46 by lfabbro          ###   ########.fr        #
+#    Updated: 2018/06/25 15:07:45 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC_NAME		=  \
 	conv/ft_atoi.c  conv/ft_atol.c  conv/ft_atoll.c  conv/ft_itoa_base.c  \
 	conv/ft_itoa.c  conv/ft_lltoa_base.c  conv/ft_nbrlen.c  \
 	conv/ft_ulltoa_base.c  \
-	get_next_line.c  getopt.c  exit.c
+	get_next_line.c  getopt.c  exit.c \
+	get_next_line_nl.c
 
 # Directories
 SRC_PATH	= src
