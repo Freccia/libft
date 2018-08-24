@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 15:18:12 by lfabbro           #+#    #+#              #
-#    Updated: 2018/06/25 15:07:45 by lfabbro          ###   ########.fr        #
+#    Updated: 2018/08/24 13:36:08 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ INC_PATH	= include
 TEST_PATH	= test
 
 # Compilation flags
-CFLAGS		+= -g    #-O3
+CFLAGS		+= -g  -fPIC  #-O3
 
 OBJ_DIR		?= obj
 OBJ_PATH	?= $(OBJ_DIR)/rel
