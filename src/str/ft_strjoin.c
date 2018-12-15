@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 11:14:38 by lfabbro           #+#    #+#             */
-/*   Updated: 2018/06/20 18:24:05 by lfabbro          ###   ########.fr       */
+/*   Updated: 2018/12/15 11:53:53 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	ls1;
 	size_t	ls2;
 
-	if (s1)
-		ls1 = ft_strlen(s1);
-	if (s2)
-		ls2 = ft_strlen(s2);
+	ls1 = (s1) ? ft_strlen(s1) : 0;
+	ls2 = (s2) ? ft_strlen(s2) : 0;
 	if (!s1 && s2)
 	{
 		str = ft_strnew(ls2 + 1);

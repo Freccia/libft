@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 15:18:12 by lfabbro           #+#    #+#              #
-#    Updated: 2018/08/24 13:36:08 by lfabbro          ###   ########.fr        #
+#    Updated: 2018/12/15 11:51:21 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ WWFLAGS = $(WFLAGS) -Wpedantic -Wshadow -Wconversion -Wcast-align \
 # Compilation
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	CC			= clang
+	CC			= gcc
 	CCFLAGS		+= -D LINUX
 endif
 ifeq ($(UNAME_S),Darwin)
