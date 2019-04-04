@@ -73,7 +73,7 @@ char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
 char				*ft_lltoa_base(long long value, int base, char set);
 char				*ft_ulltoa_base(long long value, int base, char set);
-unsigned long		ft_atoul_hex(const char *str);
+uint64_t			ft_atou64_hex(const char *str);
 
 /*
 **	IS .. WHAT?
@@ -90,6 +90,7 @@ int					ft_isalpha_str(char *str);
 int					ft_strisdigit(char *str);
 int					ft_issticky(char *path);
 int					ft_isexec(char *path);
+int 				ft_ishex(char *hex);
 
 /*
 **	STR

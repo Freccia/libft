@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-int			ft_isnbr(char *str)
+int		ft_isnbr(char *str)
 {
 	int	is_nbr;
 
@@ -28,4 +28,19 @@ int			ft_isnbr(char *str)
 			is_nbr = 1;
 	}
 	return (is_nbr);
+}
+
+int 	ft_ishex(char *str)
+{
+	int 	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9') && !(str[i] >= 'a' && str[i] <= 'f')
+			&& !(str[i] >= 'A' && str[i] <= 'F'))
+			return (EXIT_FAILURE);
+		++i;
+	}
+	return (EXIT_SUCCESS);
 }
