@@ -73,6 +73,7 @@ char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
 char				*ft_lltoa_base(long long value, int base, char set);
 char				*ft_ulltoa_base(long long value, int base, char set);
+unsigned long		ft_atoul_hex(const char *str);
 
 /*
 **	IS .. WHAT?

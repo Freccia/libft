@@ -49,7 +49,7 @@ SRC_NAME		=  \
 	math/ft_abs.c  math/ft_pow.c  \
 	conv/ft_atoi.c  conv/ft_atol.c  conv/ft_atoll.c  conv/ft_itoa_base.c  \
 	conv/ft_itoa.c  conv/ft_lltoa_base.c  conv/ft_nbrlen.c  \
-	conv/ft_ulltoa_base.c  \
+	conv/ft_ulltoa_base.c  conv/ft_atoul_hex.c \
 	get_next_line.c  getopt.c  exit.c \
 	get_next_line_nl.c
 
